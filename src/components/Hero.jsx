@@ -15,7 +15,7 @@ const Hero = () => {
         <div className="hero-cta">
           <a href="#projects" className="btn btn-primary">Ver Proyectos</a>
           <a href="#contact" className="btn btn-outline">Contáctame</a>
-          <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">CV</a>
+          <a href="/CV_David_Marín_Ruiz.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">CV</a>
         </div>
       </div>
       <div className="hero-graphic animate-fade-in" style={{ animationDelay: '0.2s' }}>
