@@ -21,7 +21,7 @@ const Contact = () => {
             <a href="https://github.com/David-T03" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
               <FaGithub /> GitHub
             </a>
-            <a href="www.linkedin.com/in/david-marín-ruiz" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+            <a href="https://www.linkedin.com/in/david-mar%C3%ADn-ruiz-524baa216/" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
               <FaLinkedin /> LinkedIn
             </a>
           </div>
