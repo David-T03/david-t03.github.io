@@ -9,13 +9,13 @@ const About = () => {
         <div className="about-text">
           <p>
             Hola, soy estudiante de Informática Empresarial apasionado por crear soluciones eficientes y escalables.
-            Con experiencia en tecnologías backend como <strong>Java, C# y Node.js</strong>, y
-            habilidades en frontend usando <strong>HTML, CSS, React y TypeScript</strong>, disfruto
-            construyendo páginas web y aplicaciones completas de principio a fin.
+            Destaco por tener facilidad para comunicarme, trabajar en equipo y bajo presión y aprender rápido. Soy una persona
+            tolerante, paciente y proactiva, disfruto
+            desarrollando páginas web y aplicaciones completas de principio a fin.
           </p>
           <p>
             Mi enfoque principal es escribir código limpio, mantenible y centrado en el usuario.
-            Siempre estoy aprendiendo nuevas tecnologías y buscando retos que me permitan crecer
+            Constantemente estoy aprendiendo nuevas tecnologías y buscando retos que me permitan crecer
             como profesional y como persona.
           </p>
           <p>

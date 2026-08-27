@@ -12,6 +12,7 @@
   margin-bottom: 1rem;
   font-size: 1.1rem;
   color: var(--text-secondary);
+  text-align: justify;
 }
 
 .about-text strong {
@@ -58,12 +59,12 @@
   .about-content {
     flex-direction: column;
   }
-  
+
   .about-stats {
     flex-direction: row;
     width: 100%;
   }
-  
+
   .stat-item {
     flex: 1;
   }
