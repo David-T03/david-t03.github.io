@@ -1,55 +1,92 @@
-.skills-grid {
+/* ── Contenedor general ── */
+.skills-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-md);
 }
 
-.skill-card {
+/* ── Tarjeta de categoría ── */
+.skill-category {
   animation: slideUp 0.5s ease forwards;
-  animation-delay: var(--delay);
+  animation-delay: var(--delay, 0s);
   opacity: 0;
+  border-top: 3px solid var(--cat-color, var(--accent-primary));
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skill-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+.skill-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-.skill-name {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.skill-icon {
+/* ── Encabezado de categoría ── */
+.category-header {
   display: flex;
   align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.category-emoji {
   font-size: 1.4rem;
+  line-height: 1;
 }
 
-.skill-level {
-  color: var(--text-secondary);
+.category-label {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cat-color, var(--accent-primary));
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* ── Chips de habilidades ── */
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skill-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid color-mix(in srgb, var(--chip-color, #fff) 35%, transparent);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+
+.skill-chip:hover {
+  background: color-mix(in srgb, var(--chip-color, #fff) 15%, transparent);
+  transform: scale(1.06);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--chip-color, #fff) 30%, transparent);
+}
+
+.chip-icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.chip-name {
+  font-size: 0.9rem;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
-.progress-bar {
-  height: 8px;
-  background: var(--bg-primary);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width 1s ease-in-out;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
+/* ── Animación ── */
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
