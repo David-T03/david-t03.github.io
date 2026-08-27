@@ -30,7 +30,7 @@ const About = () => {
             <span className="stat-label">Años de Exp.</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">2</span>
+            <span className="stat-number">0</span>
             <span className="stat-label">Proyectos</span>
           </div>
         </div>
