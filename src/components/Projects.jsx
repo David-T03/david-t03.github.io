@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import './Projects.css';
 
-// ─── Proyectos principales (agrégalos aquí cuando los tengas) ───────────────
 const mainProjects = [
-  // Ejemplo de cómo agregar un proyecto:
-  // {
-  //   title: 'Nombre del proyecto',
-  //   description: 'Descripción breve del proyecto.',
-  //   tags: ['React', 'Node.js'],
-  //   link: 'https://github.com/tu-usuario/repo'
-  // },
+  {
+    title: 'Restaurant API Core (Atenix)',
+    description: 'Arquitectura base multicapa en Java Spring Boot y SQL Server. Motor backend diseñado para escalar sistemas de menú digital y e-commerce, con integración de seguridad y webhooks de pago.',
+    tags: ['Java 21', 'Spring Boot', 'SQL Server', 'REST API', 'Arquitectura'],
+    link: '/Backend Architecture.pdf',
+    buttonText: '📄 Ver Arquitectura (PDF)',
+    status: '🚧 En Desarrollo',
+    gistLink: 'https://gist.github.com/David-T03/c71d779c73c6bff639083c61ad2c8fef',
+    gistText: '💻 Ver Snippet (Java)'
+  }
 ];
 
 // ─── Proyectos adicionales (modal "Otros") ───────────────────────────────────
@@ -25,9 +27,25 @@ const otherProjects = [
 
 // ─── Tarjeta de proyecto ─────────────────────────────────────────────────────
 const ProjectCard = ({ project, index }) => (
-  <div className="project-card glass-card" style={{ '--delay': `${index * 0.1}s` }}>
-    <div className="project-content">
-      <h3>{project.title}</h3>
+  <div className="project-card glass-card" style={{ '--delay': `${index * 0.1}s`, display: 'flex', flexDirection: 'column' }}>
+    <div className="project-content" style={{ flexGrow: 1 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
+        <h3>{project.title}</h3>
+        {project.status && (
+          <span style={{
+            fontSize: '0.75rem',
+            padding: '0.25rem 0.5rem',
+            background: 'rgba(255, 165, 0, 0.15)',
+            color: '#ffa500',
+            borderRadius: '4px',
+            border: '1px solid rgba(255, 165, 0, 0.3)',
+            whiteSpace: 'nowrap',
+            marginLeft: '10px'
+          }}>
+            {project.status}
+          </span>
+        )}
+      </div>
       <p>{project.description}</p>
       <div className="project-tags">
         {project.tags.map((tag, i) => (
@@ -35,14 +53,31 @@ const ProjectCard = ({ project, index }) => (
         ))}
       </div>
     </div>
-    <a
-      href={project.link}
-      className="btn btn-outline"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Ver Código
-    </a>
+
+    {/* Contenedor de botones alineados */}
+    <div style={{ display: 'flex', gap: '10px', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+      <a
+        href={project.link}
+        className="btn btn-outline"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ flex: 1, textAlign: 'center', padding: '0.5rem 1rem' }}
+      >
+        {project.buttonText || 'Ver Código'}
+      </a>
+
+      {project.gistLink && (
+        <a
+          href={project.gistLink}
+          className="btn btn-outline"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ flex: 1, textAlign: 'center', padding: '0.5rem 1rem' }}
+        >
+          {project.gistText}
+        </a>
+      )}
+    </div>
   </div>
 );
 
