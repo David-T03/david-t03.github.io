@@ -12,7 +12,7 @@ const Contact = () => {
           <p>Estoy disponible para ayudarte a impulsar tu empresa con soluciones innovadoras y eficientes, ¡no dudes en escribirme!</p>
 
           <div className="contact-links">
-            <a href="mailto:davidmarin961@gmail.com" className="btn btn-primary">
+            <a href="mailto:davidmruiz1306@gmail.com" className="btn btn-primary">
               <FaEnvelope /> Email
             </a>
             <a href="https://wa.me/50660698086" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
