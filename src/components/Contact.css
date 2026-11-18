@@ -1,11 +1,17 @@
 .contact-wrapper {
   max-width: 800px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .contact-info {
   text-align: center;
   padding: var(--spacing-xl) var(--spacing-lg);
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .contact-info h3 {
@@ -21,6 +27,7 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .contact-links {
@@ -46,4 +53,60 @@
   background-color: #1ebe5d;
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
   transform: translateY(-2px);
+}
+
+/* ── Animación destacada cuando se pulsa "Contáctame" ── */
+@keyframes contactGlowPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+    border-color: rgba(99, 102, 241, 0.9);
+    transform: scale(1);
+  }
+  30% {
+    box-shadow: 0 0 35px 8px rgba(99, 102, 241, 0.5);
+    border-color: rgba(168, 85, 247, 1);
+    transform: scale(1.02);
+  }
+  70% {
+    box-shadow: 0 0 20px 4px rgba(99, 102, 241, 0.3);
+    border-color: rgba(99, 102, 241, 0.6);
+  }
+  100% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--glass-border);
+    transform: scale(1);
+  }
+}
+
+.contact-info.highlight-contact {
+  animation: contactGlowPulse 1.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ── Responsive Móvil ── */
+@media (max-width: 600px) {
+  .contact-info {
+    padding: 2.25rem 1.25rem;
+  }
+
+  .contact-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .contact-links .btn {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.85rem 1rem;
+  }
 }

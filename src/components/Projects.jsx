@@ -27,21 +27,12 @@ const otherProjects = [
 
 // ─── Tarjeta de proyecto ─────────────────────────────────────────────────────
 const ProjectCard = ({ project, index }) => (
-  <div className="project-card glass-card" style={{ '--delay': `${index * 0.1}s`, display: 'flex', flexDirection: 'column' }}>
-    <div className="project-content" style={{ flexGrow: 1 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
+  <div className="project-card glass-card" style={{ '--delay': `${index * 0.1}s` }}>
+    <div className="project-content">
+      <div className="project-header">
         <h3>{project.title}</h3>
         {project.status && (
-          <span style={{
-            fontSize: '0.75rem',
-            padding: '0.25rem 0.5rem',
-            background: 'rgba(255, 165, 0, 0.15)',
-            color: '#ffa500',
-            borderRadius: '4px',
-            border: '1px solid rgba(255, 165, 0, 0.3)',
-            whiteSpace: 'nowrap',
-            marginLeft: '10px'
-          }}>
+          <span className="project-status">
             {project.status}
           </span>
         )}
@@ -55,13 +46,12 @@ const ProjectCard = ({ project, index }) => (
     </div>
 
     {/* Contenedor de botones alineados */}
-    <div style={{ display: 'flex', gap: '10px', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+    <div className="project-actions">
       <a
         href={project.link}
-        className="btn btn-outline"
+        className="btn btn-outline project-btn"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ flex: 1, textAlign: 'center', padding: '0.5rem 1rem' }}
       >
         {project.buttonText || 'Ver Código'}
       </a>
@@ -69,10 +59,9 @@ const ProjectCard = ({ project, index }) => (
       {project.gistLink && (
         <a
           href={project.gistLink}
-          className="btn btn-outline"
+          className="btn btn-outline project-btn"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ flex: 1, textAlign: 'center', padding: '0.5rem 1rem' }}
         >
           {project.gistText}
         </a>

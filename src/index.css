@@ -1,25 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --bg-primary: #0a0a0a;
   --bg-secondary: #111111;
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
   --accent-color: #6366f1; /* Indigo */
+  --accent-primary: #6366f1;
   --accent-hover: #4f46e5;
   --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
   
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
   --spacing-xl: 4rem;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 body {
@@ -28,7 +34,13 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Offset para anclas al tener navbar fija */
+section[id] {
+  scroll-margin-top: 85px;
 }
 
 h1, h2, h3, h4 {
@@ -47,9 +59,11 @@ ul {
 
 /* Utilities */
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
+  box-sizing: border-box;
 }
 
 .section {
@@ -73,25 +87,33 @@ ul {
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: var(--spacing-lg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  max-width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .glass-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.35);
 }
 
-/* Buttons */
+/* Buttons con micro-animaciones */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   font-family: inherit;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.97) !important;
 }
 
 .btn-primary {
@@ -113,8 +135,9 @@ ul {
 }
 
 .btn-outline:hover {
-  background: var(--glass-bg);
+  background: rgba(99, 102, 241, 0.1);
   border-color: var(--accent-color);
+  transform: translateY(-2px);
 }
 
 /* Animations */
@@ -143,4 +166,41 @@ ul {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-color);
+}
+
+/* ── Responsive Global ── */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .glass-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .glass-card {
+    padding: 1.25rem;
+  }
 }

@@ -1,0 +1,251 @@
+/* ── Navbar fija con efecto glassmorphism ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border-bottom-color: rgba(99, 102, 241, 0.2);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  box-sizing: border-box;
+}
+
+/* ── Logo ── */
+.nav-logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  user-select: none;
+}
+
+.nav-logo:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+.nav-logo-bracket {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.nav-accent {
+  color: var(--accent-color);
+}
+
+/* ── Links de escritorio ── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.4rem 0.2rem;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), #a855f7);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-btn-contact {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #fff;
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-btn-contact:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+  transform: translateY(-1px);
+}
+
+.nav-btn-contact:active {
+  transform: translateY(1px);
+}
+
+/* ── Botón Hamburguesa Móvil ── */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.nav-toggle:hover {
+  color: var(--accent-color);
+}
+
+/* ── Botón flotante Volver Arriba ── */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(18, 18, 28, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-hover);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+  transform: translateY(-3px);
+}
+
+.scroll-to-top:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* ── Responsive para móviles y tablets ── */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1.25rem;
+    height: 64px;
+  }
+
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: rgba(12, 12, 18, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-direction: column;
+    padding: 1.5rem 1.25rem 2rem;
+    gap: 1.2rem;
+    align-items: stretch;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-btn-contact {
+    justify-content: center;
+    padding: 0.8rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .scroll-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 42px;
+    height: 42px;
+  }
+}
