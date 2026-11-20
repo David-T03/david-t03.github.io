@@ -14,15 +14,16 @@ const mainProjects = [
   }
 ];
 
-// ─── Proyectos adicionales (modal "Otros") ───────────────────────────────────
+// ─── Proyectos adicionales y recursos (modal "Otros") ────────────────────────
 const otherProjects = [
-  // Ejemplo:
-  // {
-  //   title: 'Otro proyecto',
-  //   description: 'Descripción.',
-  //   tags: ['Java'],
-  //   link: '#'
-  // },
+  {
+    title: 'Python Labs',
+    description: 'Repositorio educativo con laboratorios prácticos, ejercicios resueltos y fundamentos de Python diseñado como material de consulta abierto.',
+    tags: ['Python', 'POO', 'Open Source'],
+    link: 'https://github.com/David-T03/python-labs',
+    buttonText: '📚 Ver Repositorio',
+    status: '📖🚧 Recurso Educativo en proceso'
+  }
 ];
 
 // ─── Tarjeta de proyecto ─────────────────────────────────────────────────────
@@ -127,7 +128,7 @@ const Projects = () => {
           onClick={() => setShowModal(true)}
           id="btn-otros-proyectos"
         >
-          <span>Otros proyectos</span>
+          <span>Otros proyectos y recursos</span>
           <span className="btn-arrow">→</span>
         </button>
       </div>
