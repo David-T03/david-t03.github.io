@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { FaBars, FaTimes, FaArrowUp, FaPaperPlane } from 'react-icons/fa';
+import { FaBars, FaTimes, FaArrowUp, FaPaperPlane, FaSun, FaMoon } from 'react-icons/fa';
+import { useTheme } from '../hooks/useTheme';
 
 const navItems = [
   { label: 'Inicio', href: '#home' },
@@ -15,6 +16,9 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [showScrollTop, setShowScrollTop] = useState(false);
 
+  // <-- El hook va aquí ADENTRO de Navbar
+  const { theme, toggleTheme } = useTheme();
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -27,7 +31,6 @@ const Navbar = () => {
         const el = document.getElementById(sectionId);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // Si la sección está en la zona superior de la pantalla
           if (rect.top <= 180 && rect.bottom >= 180) {
             setActiveSection(sectionId);
             break;
@@ -57,12 +60,10 @@ const Navbar = () => {
         behavior: 'smooth',
       });
 
-      // Si es la sección de contacto, disparar efecto de animación suave
       if (targetId === 'contact') {
         const contactCard = element.querySelector('.contact-info');
         if (contactCard) {
           contactCard.classList.remove('highlight-contact');
-          // Forzar reflujo para reiniciar la animación
           void contactCard.offsetWidth;
           contactCard.classList.add('highlight-contact');
         }
@@ -124,6 +125,18 @@ const Navbar = () => {
               >
                 <FaPaperPlane style={{ fontSize: '0.8rem' }} /> Contáctame
               </a>
+            </li>
+            {/* Botón de cambio de tema */}
+            <li>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="theme-toggle-btn"
+                aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+                title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}
+              >
+                {theme === 'dark' ? <FaSun /> : <FaMoon />}
+              </button>
             </li>
           </ul>
         </div>
